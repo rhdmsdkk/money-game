@@ -2,8 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    private MoneyManager _moneyManager;
+
     public string _activity;
     public int _cost;
 
@@ -14,6 +16,7 @@ public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Awake()
     {
+        _moneyManager = FindAnyObjectByType<MoneyManager>();
         _text = GetComponent<TextMeshProUGUI>();
     }
 
@@ -33,5 +36,10 @@ public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         _text.fontStyle = DEFAULT_FONT_STYLE;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _moneyManager.SpendMoney(_cost);
     }
 }
