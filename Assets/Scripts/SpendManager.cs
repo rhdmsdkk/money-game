@@ -8,8 +8,8 @@ public class SpendManager : MonoBehaviour
 
     private const float SPAWN_DEFAULT_VALUE = 2f;
     private const float SPAWN_DISTANCE_MULTIPLIER = 20f;
-    private string INIT_SPEND_OPTION_ACTIVITY = "Eat food";
-    private int INIT_SPEND_OPTION_COST = 10;
+    private const string INIT_SPEND_OPTION_ACTIVITY = "Eat food";
+    private const int INIT_SPEND_OPTION_COST = 10;
 
     private void Start()
     {

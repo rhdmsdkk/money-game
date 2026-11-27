@@ -2,17 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class SpendOption : MonoBehaviour, IPointerClickHandler
 {
+    protected TextMeshProUGUI _text;
     private MoneyManager _moneyManager;
 
     public string _activity;
     public int _cost;
-
-    private TextMeshProUGUI _text;
-
-    private const FontStyles DEFAULT_FONT_STYLE = FontStyles.Bold;
-    private const FontStyles ACTIVE_FONT_STYLE = FontStyles.Bold | FontStyles.Underline;
 
     private void Awake()
     {
@@ -28,18 +24,10 @@ public class SpendOption : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _text.text = activity + " | $" + cost;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        _text.fontStyle = ACTIVE_FONT_STYLE;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _text.fontStyle = DEFAULT_FONT_STYLE;
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         _moneyManager.SpendMoney(_cost);
+
+        Destroy(gameObject);
     }
 }
