@@ -11,12 +11,6 @@ public class PeopleManager : MonoBehaviour
     private const float SPAWN_DEFAULT_VALUE = 2f;
     private const float SPAWN_DISTANCE_MULTIPLIER = 40f;
 
-    private void Start()
-    {
-        //SpawnPeople("Jayden");
-        //SpawnPeople("Rachel");
-    }
-
     public void SetActivePeople(People people)
     {
         if (_activePeople != null)
@@ -37,12 +31,12 @@ public class PeopleManager : MonoBehaviour
         _sortManager.gameObject.SetActive(false);
     }
 
-    public void SpawnPeople(string name)
+    public void SpawnPeople(Mapping mapping)
     {
         _numPeople += 1;
 
         Vector3 peoplePosition = new(0f, SPAWN_DEFAULT_VALUE - (SPAWN_DISTANCE_MULTIPLIER * (_numPeople - 1)), 0f);
         People people = Instantiate(_peoplePrefab, transform.position + peoplePosition, Quaternion.identity, transform).GetComponent<People>();
-        people.Init(name);
+        people.Init(mapping);
     }
 }

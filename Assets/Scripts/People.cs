@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class People : MonoBehaviour, IPointerClickHandler
 {
-    private string _name;
+    private Mapping _mapping;
 
     private TextMeshProUGUI _text;
     private PeopleManager _peopleManager;
@@ -18,11 +18,10 @@ public class People : MonoBehaviour, IPointerClickHandler
         _text = GetComponent<TextMeshProUGUI>();
     }
 
-    public void Init(string name)
+    public void Init(Mapping mapping)
     {
-        _name = name;
-
-        _text.text = _name;
+        _mapping = mapping;
+        _text.text = mapping.name;
     }
 
     public void OnPointerClick(PointerEventData eventData)

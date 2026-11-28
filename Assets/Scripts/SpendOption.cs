@@ -4,9 +4,7 @@ using UnityEngine.EventSystems;
 
 public class SpendOption : MonoBehaviour, IPointerClickHandler
 {
-    private string _activity;
-    private int _cost;
-    private string _peopleName; // optional
+    private Mapping _mapping;
 
     protected TextMeshProUGUI _text;
     private MoneyManager _moneyManager;
@@ -19,29 +17,23 @@ public class SpendOption : MonoBehaviour, IPointerClickHandler
         _text = GetComponent<TextMeshProUGUI>();
     }
 
-    public void Init(string activity, int cost)
+    public void Init(Mapping mapping)
     {
-        _activity = activity;
-        _cost = cost;
+        _mapping = mapping;
 
-        _text.text = _activity + " | $" + _cost;
-    }
-
-    public void Init(string activity, int cost, string name)
-    {
-        _activity = activity;
-        _cost = cost;
-        _peopleName = name;
-
-        _text.text = _activity + " | $" + _cost;
+        _text.text = mapping.activity + " | $" + mapping.cost;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_moneyManager.SpendMoney(_cost))
+        if (_moneyManager.SpendMoney(_mapping.cost))
         {
             Destroy(gameObject);
-            _peopleManager.SpawnPeople(_peopleName);
+
+            if (_mapping.name != null && _mapping.name != "")
+            {
+                _peopleManager.SpawnPeople(_mapping);
+            }
         }
     }
 }
