@@ -14,17 +14,18 @@ public class MoneyManager : MonoBehaviour
         SetMoneyText();
     }
 
-    public void SpendMoney(int spentMoney)
+    public bool SpendMoney(int spentMoney)
     {
         int res = _money - spentMoney;
 
         if (res < 0)
         {
-            return;
+            return false;
         }
 
         _money = res;
         SetMoneyText();
+        return true;
     }
 
     private void SetMoneyText()

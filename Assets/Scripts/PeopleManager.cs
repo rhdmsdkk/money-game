@@ -37,7 +37,7 @@ public class PeopleManager : MonoBehaviour
         _sortManager.gameObject.SetActive(false);
     }
 
-    private void SpawnPeople(string name)
+    public void SpawnPeople(string name)
     {
         _numPeople += 1;
 
