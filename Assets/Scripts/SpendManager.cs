@@ -26,7 +26,6 @@ public class SpendManager : MonoBehaviour
         _numOptions += 1;
 
         Vector3 spendOptionPosition = new(0f, SPAWN_DEFAULT_VALUE - (SPAWN_DISTANCE_MULTIPLIER * (_numOptions - 1)), 0f);
-        Debug.Log(spendOptionPosition + activity);
         SpendOption spendOption = Instantiate(_spendOptionPrefab, transform.position + spendOptionPosition, Quaternion.identity, transform).GetComponent<SpendOption>();
         spendOption.Init(activity, cost);
     }

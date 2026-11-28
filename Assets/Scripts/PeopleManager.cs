@@ -3,12 +3,19 @@ using UnityEngine;
 public class PeopleManager : MonoBehaviour
 {
     [SerializeField] private GameObject _peoplePrefab;
+    [SerializeField] private SortManager _sortManager;
 
     private People _activePeople;
     private int _numPeople = 0;
 
     private const float SPAWN_DEFAULT_VALUE = 2f;
-    private const float SPAWN_DISTANCE_MULTIPLIER = 20f;
+    private const float SPAWN_DISTANCE_MULTIPLIER = 40f;
+
+    private void Start()
+    {
+        //SpawnPeople("Jayden");
+        //SpawnPeople("Rachel");
+    }
 
     public void SetActivePeople(People people)
     {
@@ -19,6 +26,15 @@ public class PeopleManager : MonoBehaviour
 
         people.Select();
         _activePeople = people;
+
+        _sortManager.gameObject.SetActive(true);
+    }
+
+    public void ClearActivePeople()
+    {
+        _activePeople = null;
+
+        _sortManager.gameObject.SetActive(false);
     }
 
     private void SpawnPeople(string name)
