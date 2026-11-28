@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 
 public class SpendOption : MonoBehaviour, IPointerClickHandler
 {
+    private string _activity;
+    private int _cost;
+
     protected TextMeshProUGUI _text;
     private MoneyManager _moneyManager;
-
-    public string _activity;
-    public int _cost;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class SpendOption : MonoBehaviour, IPointerClickHandler
         _activity = activity;
         _cost = cost;
 
-        _text.text = activity + " | $" + cost;
+        _text.text = _activity + " | $" + _cost;
     }
 
     public void OnPointerClick(PointerEventData eventData)

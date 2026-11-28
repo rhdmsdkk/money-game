@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891403062333793637}
-  - component: {fileID: 2497512619116096899}
+  - component: {fileID: 1745491287012351618}
   - component: {fileID: -4457245199596286455}
+  - component: {fileID: 2497512619116096899}
   - component: {fileID: 8306845087662663600}
   m_Layer: 5
   m_Name: People
@@ -38,14 +39,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 22}
   m_SizeDelta: {x: 225, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2497512619116096899
-CanvasRenderer:
+--- !u!114 &1745491287012351618
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5234482311531142253}
-  m_CullTransparentMesh: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c5c0e5ab968ed4bafa9bec1c46ea6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-4457245199596286455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +63,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4276392a4ccce644297d34ccc74d8e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &2497512619116096899
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234482311531142253}
+  m_CullTransparentMesh: 1
 --- !u!114 &8306845087662663600
 MonoBehaviour:
   m_ObjectHideFlags: 0
