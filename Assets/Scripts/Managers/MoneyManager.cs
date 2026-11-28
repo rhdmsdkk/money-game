@@ -32,4 +32,9 @@ public class MoneyManager : MonoBehaviour
     {
         _moneyText.text = "$" + _money;
     }
+
+    public int GetMoney()
+    {
+        return _money;
+    }
 }

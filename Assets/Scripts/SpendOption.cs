@@ -28,12 +28,12 @@ public class SpendOption : MonoBehaviour, IPointerClickHandler
     {
         if (_moneyManager.SpendMoney(_mapping.cost))
         {
-            Destroy(gameObject);
-
             if (_mapping.name != null && _mapping.name != "")
             {
                 _peopleManager.SpawnPeople(_mapping);
             }
+
+            Destroy(gameObject);
         }
     }
 }
