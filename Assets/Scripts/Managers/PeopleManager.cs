@@ -3,7 +3,7 @@ using UnityEngine;
 public class PeopleManager : MonoBehaviour
 {
     [SerializeField] private GameObject _peoplePrefab;
-    [SerializeField] private GameObject _sortPanel;
+    [SerializeField] private SortManager _sortManager;
 
     private People _activePeople;
     private int _numPeople = 0;
@@ -29,14 +29,15 @@ public class PeopleManager : MonoBehaviour
         people.Select();
         _activePeople = people;
 
-        _sortPanel.gameObject.SetActive(true);
+        _sortManager.gameObject.SetActive(true);
     }
 
     public void ClearActivePeople()
     {
+        Destroy(_activePeople.gameObject);
         _activePeople = null;
 
-        _sortPanel.gameObject.SetActive(false);
+        _sortManager.gameObject.SetActive(false);
     }
 
     public void SpawnPeople(Mapping mapping)
@@ -45,7 +46,7 @@ public class PeopleManager : MonoBehaviour
 
         Vector3 peoplePosition = new(0f, SPAWN_DEFAULT_VALUE - (SPAWN_DISTANCE_MULTIPLIER * (_numPeople - 1)), 0f);
         People people = Instantiate(_peoplePrefab, transform.position + peoplePosition, Quaternion.identity, transform).GetComponent<People>();
-        people.Init(mapping);
+        people.Init(mapping, _sortManager);
     }
 
     private void Reposition()

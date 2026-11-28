@@ -20,10 +20,12 @@ public class People : MonoBehaviour, IPointerClickHandler
         _text = GetComponent<TextMeshProUGUI>();
     }
 
-    public void Init(Mapping mapping)
+    public void Init(Mapping mapping, SortManager sortManager)
     {
         _mapping = mapping;
         _text.text = mapping.name;
+
+        _sortManager = sortManager;
     }
 
     public void OnPointerClick(PointerEventData eventData)
