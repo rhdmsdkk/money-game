@@ -22,7 +22,6 @@ public class SpendManager : MonoBehaviour
         _numOptions += 1;
 
         Vector3 spendOptionPosition = new(0f, SPAWN_DEFAULT_VALUE - (SPAWN_DISTANCE_MULTIPLIER * (_numOptions - 1)), 0f);
-        Debug.Log(spendOptionPosition + " " + transform.position + spendOptionPosition);
         SpendOption spendOption = Instantiate(_spendOptionPrefab, transform.position + spendOptionPosition, Quaternion.identity, transform).GetComponent<SpendOption>();
 
         spendOption.Init(mapping);
@@ -38,7 +37,6 @@ public class SpendManager : MonoBehaviour
             i += 1;
 
             Vector3 spendOptionPosition = new(0f, SPAWN_DEFAULT_VALUE - (SPAWN_DISTANCE_MULTIPLIER * (i - 1)), 0f);
-            Debug.Log(spendOptionPosition + " " + transform.position + spendOptionPosition);
             child.position = transform.position + spendOptionPosition;
         }
     }

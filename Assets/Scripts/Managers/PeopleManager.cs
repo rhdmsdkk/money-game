@@ -3,7 +3,7 @@ using UnityEngine;
 public class PeopleManager : MonoBehaviour
 {
     [SerializeField] private GameObject _peoplePrefab;
-    [SerializeField] private SortManager _sortManager;
+    [SerializeField] private GameObject _sortPanel;
 
     private People _activePeople;
     private int _numPeople = 0;
@@ -29,14 +29,14 @@ public class PeopleManager : MonoBehaviour
         people.Select();
         _activePeople = people;
 
-        _sortManager.gameObject.SetActive(true);
+        _sortPanel.gameObject.SetActive(true);
     }
 
     public void ClearActivePeople()
     {
         _activePeople = null;
 
-        _sortManager.gameObject.SetActive(false);
+        _sortPanel.gameObject.SetActive(false);
     }
 
     public void SpawnPeople(Mapping mapping)
